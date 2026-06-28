@@ -91,6 +91,87 @@ function main() {
   // Write routes.txt for static prerendering
   fs.writeFileSync(routesFilePath, routes.join('\n'), 'utf8');
   console.log(`Successfully generated routes.txt for prerendering.`);
+
+  // Write robots.txt
+  const robotsFilePath = path.join(__dirname, '../public/robots.txt');
+  const robotsContent = `User-agent: *
+Allow: /
+
+Sitemap: https://www.dmh.dev/sitemap.xml
+`;
+  fs.writeFileSync(robotsFilePath, robotsContent, 'utf8');
+  console.log('Successfully generated robots.txt.');
+
+  // Write sitemap.xml
+  const sitemapFilePath = path.join(__dirname, '../public/sitemap.xml');
+  let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
+
+  const staticRoutes = [
+    { loc: '/', changefreq: 'weekly', priority: '1.0' },
+    { loc: '/about', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+    { loc: '/legal-notice', changefreq: 'yearly', priority: '0.3' },
+    { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.3' }
+  ];
+
+  staticRoutes.forEach(route => {
+    sitemapContent += `  <url>
+    <loc>https://www.dmh.dev${route.loc}</loc>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>
+`;
+  });
+
+  postsMetadata.forEach(post => {
+    let lastmod = '';
+    try {
+      lastmod = new Date(post.publishedAt).toISOString().split('T')[0];
+    } catch (e) {
+      lastmod = post.publishedAt;
+    }
+
+    sitemapContent += `  <url>
+    <loc>https://www.dmh.dev/blog/${post.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+`;
+  });
+
+  sitemapContent += `</urlset>\n`;
+  fs.writeFileSync(sitemapFilePath, sitemapContent, 'utf8');
+  console.log('Successfully generated sitemap.xml.');
+
+  // Write llms.txt
+  const llmsFilePath = path.join(__dirname, '../public/llms.txt');
+  let llmsContent = `# dmh.dev
+
+> Personal portfolio and developer blog of Dennis Martin Herbers. Focused on software engineering, NestJS, Angular, and clean code practices.
+
+## Pages
+
+- [Home](https://www.dmh.dev/) - Introduction, key socials, and latest writing.
+- [About Me](https://www.dmh.dev/about) - Personal philosophy, focus tech stack (NestJS, TypeScript, Angular, Postgres, Docker), and professional background.
+- [Blog Archive](https://www.dmh.dev/blog) - List of all articles.
+- [Legal Notice](https://www.dmh.dev/legal-notice) - Legal site disclosures (Impressum) in English & German.
+- [Privacy Policy](https://www.dmh.dev/privacy-policy) - Privacy policy (Datenschutzerklärung) in English & German.
+
+## Blog Posts
+
+`;
+
+  postsMetadata.forEach(post => {
+    llmsContent += `- [${post.title}](https://www.dmh.dev/blog/${post.slug}) (${post.publishedAt})
+  ${post.excerpt}
+`;
+  });
+
+  fs.writeFileSync(llmsFilePath, llmsContent, 'utf8');
+  console.log('Successfully generated llms.txt.');
 }
 
 main();

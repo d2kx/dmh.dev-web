@@ -1,0 +1,20 @@
+# dmh.dev
+
+> Personal portfolio and developer blog of Dennis Martin Herbers. Focused on software engineering, NestJS, Angular, and clean code practices.
+
+## Pages
+
+- [Home](https://www.dmh.dev/) - Introduction, key socials, and latest writing.
+- [About Me](https://www.dmh.dev/about) - Personal philosophy, focus tech stack (NestJS, TypeScript, Angular, Postgres, Docker), and professional background.
+- [Blog Archive](https://www.dmh.dev/blog) - List of all articles.
+- [Legal Notice](https://www.dmh.dev/legal-notice) - Legal site disclosures (Impressum) in English & German.
+- [Privacy Policy](https://www.dmh.dev/privacy-policy) - Privacy policy (Datenschutzerklärung) in English & German.
+
+## Blog Posts
+
+- [Designing with Rich Aesthetics](https://www.dmh.dev/blog/web-design-aesthetics) (2026-06-28T22:30:00Z)
+  How to design premium developer portfolios using curated color systems, modern typography, and subtle rainbow accents.
+- [Exploring Angular v22 Features](https://www.dmh.dev/blog/exploring-angular-v22) (2026-06-28T22:15:00Z)
+  A deep dive into the latest stable features of Angular v22, including signals-based reactivity, signal forms, and zoneless rendering.
+- [Welcome to My New Blog](https://www.dmh.dev/blog/welcome-to-my-new-blog) (2026-06-28T22:00:00Z)
+  An introduction to my new personal portfolio, developer blog, and why I decided to rewrite the application using Angular v22.
