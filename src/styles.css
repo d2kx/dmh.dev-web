@@ -69,6 +69,7 @@ html {
   scroll-behavior: smooth;
   transition: background-color 0.3s ease, color 0.3s ease;
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -274,4 +275,14 @@ p {
   height: 1px;
   background-color: var(--border-color);
   margin: 2rem 0;
+}
+
+/* Separator Line */
+.separator {
+  border: 0;
+  height: 1px;
+  background: var(--rainbow-gradient);
+  margin: 32px 0;
+  display: block;
+  padding: 0;
 }

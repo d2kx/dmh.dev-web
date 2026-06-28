@@ -78,12 +78,6 @@
   margin-top: 0.5rem;
 }
 
-/* Separator Line */
-.separator {
-  border: 0;
-  height: 1px;
-  background-color: var(--border-color);
-}
 
 /* Blog Section */
 .blog-section {
