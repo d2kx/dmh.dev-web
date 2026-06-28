@@ -30,7 +30,7 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
-              "allowedHosts": []
+              "allowedHosts": ["dmh.dev", "www.dmh.dev"]
             },
             "ssr": {
               "entry": "src/server.ts"
