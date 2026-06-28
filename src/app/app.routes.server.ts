@@ -18,10 +18,10 @@ export const serverRoutes: ServerRoute[] = [
         console.error('Error reading blog posts for prerendering:', err);
       }
       return [];
-    }
+    },
   },
   {
     path: '**',
-    renderMode: RenderMode.Prerender
-  }
+    renderMode: RenderMode.Prerender,
+  },
 ];

@@ -1,25 +1,45 @@
 <div class="app-layout">
   <!-- Desktop Sidebar Navigation -->
   <aside class="sidebar-nav">
-
     <nav class="nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item"
+      >
         Home
       </a>
-      <a routerLink="/about" routerLinkActive="active" class="nav-item">
-        About
-      </a>
-      <a routerLink="/blog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}" class="nav-item">
+      <a routerLink="/about" routerLinkActive="active" class="nav-item"> About </a>
+      <a
+        routerLink="/blog"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+        class="nav-item"
+      >
         Blog
       </a>
     </nav>
 
     <div class="nav-actions">
       <!-- Theme Switcher -->
-      <button (click)="themeService.toggleTheme()" class="theme-toggle-btn" aria-label="Toggle Theme">
+      <button
+        (click)="themeService.toggleTheme()"
+        class="theme-toggle-btn"
+        aria-label="Toggle Theme"
+      >
         @if (themeService.theme() === 'dark') {
           <!-- Sun Icon for switching to light -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
             <circle cx="12" cy="12" r="4"></circle>
             <line x1="12" y1="2" x2="12" y2="4"></line>
             <line x1="12" y1="20" x2="12" y2="22"></line>
@@ -32,7 +52,16 @@
           </svg>
         } @else {
           <!-- Moon Icon for switching to dark -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
         }
@@ -42,24 +71,45 @@
 
   <!-- Mobile Top Bar -->
   <header class="mobile-header">
-    <button (click)="toggleMobileMenu()" class="menu-toggle-btn" [class.open]="isMobileMenuOpen()" aria-label="Toggle Menu">
+    <button
+      (click)="toggleMobileMenu()"
+      class="menu-toggle-btn"
+      [class.open]="isMobileMenuOpen()"
+      aria-label="Toggle Menu"
+    >
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
     </button>
-    
+
     <div class="mobile-brand">
       <a routerLink="/" (click)="closeMobileMenu()" class="brand-link">dmh.dev</a>
     </div>
 
     <button (click)="themeService.toggleTheme()" class="theme-toggle-btn" aria-label="Toggle Theme">
       @if (themeService.theme() === 'dark') {
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="icon"
+        >
           <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+          ></path>
         </svg>
       } @else {
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="icon"
+        >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
       }
@@ -68,19 +118,40 @@
 
   <!-- Mobile Menu Drawer Overlay -->
   @if (isMobileMenuOpen()) {
-    <div class="mobile-menu-overlay" (click)="closeMobileMenu()"></div>
+    <button
+      class="mobile-menu-overlay"
+      (click)="closeMobileMenu()"
+      aria-label="Close menu"
+    ></button>
   }
 
   <!-- Mobile Navigation Drawer -->
   <div class="mobile-nav-drawer" [class.open]="isMobileMenuOpen()">
     <nav class="mobile-nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()" class="mobile-nav-item">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+        class="mobile-nav-item"
+      >
         Home
       </a>
-      <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        (click)="closeMobileMenu()"
+        class="mobile-nav-item"
+      >
         About
       </a>
-      <a routerLink="/blog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}" (click)="closeMobileMenu()" class="mobile-nav-item">
+      <a
+        routerLink="/blog"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+        (click)="closeMobileMenu()"
+        class="mobile-nav-item"
+      >
         Blog
       </a>
     </nav>

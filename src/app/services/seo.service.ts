@@ -6,7 +6,7 @@ export class SeoService {
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
 
-  updateMeta(title: string, description: string, path: string = ''): void {
+  updateMeta(title: string, description: string, path = ''): void {
     const fullTitle = path ? `${title} | Dennis Martin Herbers` : title;
     this.titleService.setTitle(fullTitle);
 
@@ -18,7 +18,7 @@ export class SeoService {
     this.metaService.updateTag({ property: 'og:description', content: description });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
     this.metaService.updateTag({ property: 'og:url', content: `https://www.dmh.dev${path}` });
-    
+
     // Twitter/X Cards
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary' });
     this.metaService.updateTag({ name: 'twitter:title', content: fullTitle });

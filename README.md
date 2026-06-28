@@ -19,29 +19,39 @@ A modern, fast, and accessible developer portfolio and blog built using **Angula
 ## Getting Started
 
 ### Installation
+
 Install project dependencies:
+
 ```bash
 npm install
 ```
 
 ### Development Server
+
 Start the local development server:
+
 ```bash
 npm run start
 ```
-*This will automatically run the blog metadata compilation script (`scripts/generate-blog-metadata.js`) before launching `ng serve`.*
+
+_This will automatically run the blog metadata compilation script (`scripts/generate-blog-metadata.js`) before launching `ng serve`._
 
 Navigate to `http://localhost:4200/`. The app will reload automatically when source files change.
 
 ### Production Build
+
 Build the application and prerender static HTML routes:
+
 ```bash
 npm run build
 ```
-*Compiled HTML output is stored under `dist/dmh.dev-web/browser/`.*
+
+_Compiled HTML output is stored under `dist/dmh.dev-web/browser/`._
 
 ### Running Unit Tests
+
 Execute unit tests via Vitest with the Angular CLI builder:
+
 ```bash
 npm run test
 ```
@@ -50,9 +60,9 @@ npm run test
 
 ## Directory Structure
 
-*   `content/blog/` — Raw Markdown posts (`.md`) with YAML-like frontmatter.
-*   `scripts/` — Node.js prebuild scripts (e.g., Markdown metadata compiler).
-*   `public/` — Static assets copied directly to the browser output root (e.g., blog metadata, clean markdown bodies).
-*   `src/app/components/` — Standalone UI components (Home, About, Blog Post, Legal Notice, Privacy Policy).
-*   `src/app/services/` — Core Signal-driven services (Theme, Blog, SEO).
-*   `src/app/i18n/` — Static English and German localization files.
+- `content/blog/` — Raw Markdown posts (`.md`) with YAML-like frontmatter.
+- `scripts/` — Node.js prebuild scripts (e.g., Markdown metadata compiler).
+- `public/` — Static assets copied directly to the browser output root (e.g., blog metadata, clean markdown bodies).
+- `src/app/components/` — Standalone UI components (Home, About, Blog Post, Legal Notice, Privacy Policy).
+- `src/app/services/` — Core Signal-driven services (Theme, Blog, SEO).
+- `src/app/i18n/` — Static English and German localization files.

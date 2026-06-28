@@ -1,12 +1,14 @@
 /* Import local Outfit font files via Fontsource */
-@import "@fontsource/outfit/300.css";
-@import "@fontsource/outfit/400.css";
-@import "@fontsource/outfit/500.css";
-@import "@fontsource/outfit/600.css";
-@import "@fontsource/outfit/700.css";
+@import '@fontsource/outfit/300.css';
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/500.css';
+@import '@fontsource/outfit/600.css';
+@import '@fontsource/outfit/700.css';
 
 /* Reset & Box-Sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -33,11 +35,12 @@
   --email-color: #ea4335;
 
   /* Gemini-style Rainbow Gradient */
-  --rainbow-gradient: linear-gradient(135deg, 
-    oklch(65% 0.22 260) 0%, 
-    oklch(60% 0.24 300) 25%, 
-    oklch(65% 0.22 340) 50%, 
-    oklch(70% 0.18 20) 75%, 
+  --rainbow-gradient: linear-gradient(
+    135deg,
+    oklch(65% 0.22 260) 0%,
+    oklch(60% 0.24 300) 25%,
+    oklch(65% 0.22 340) 50%,
+    oklch(70% 0.18 20) 75%,
     oklch(75% 0.15 80) 100%
   );
 
@@ -56,7 +59,7 @@ html.dark {
   --card-bg: oklch(18.5% 0.012 240);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
-  
+
   --accent: oklch(75% 0.16 265);
   --github-color: #f0f0f0;
   --twitter-color: #e1e8ed;
@@ -67,7 +70,9 @@ html {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   height: 100%;
   scrollbar-gutter: stable;
 }
@@ -79,12 +84,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   line-height: 1.25;
   color: var(--text-primary);
@@ -95,7 +108,9 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 /* Custom Scrollbar */
@@ -137,9 +152,10 @@ p {
   padding: 1.75rem;
   box-shadow: var(--shadow-sm);
   border: 2px solid var(--border-color);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
   position: relative;
 }
 
@@ -147,8 +163,9 @@ p {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   /* The padding-box/border-box gradient border trick */
-  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
-              var(--rainbow-gradient) border-box;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    var(--rainbow-gradient) border-box;
   border-color: transparent;
 }
 
@@ -165,13 +182,17 @@ p {
   border-radius: 9999px;
   border: 2px solid var(--border-color);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .rainbow-btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
-              var(--rainbow-gradient) border-box;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    var(--rainbow-gradient) border-box;
   border-color: transparent;
   box-shadow: var(--shadow-sm);
 }
@@ -196,9 +217,10 @@ p {
 /* Skeleton Loading styles */
 .skeleton {
   animation: skeleton-shimmer 1.5s infinite linear;
-  background: linear-gradient(90deg, 
-    var(--bg-secondary) 25%, 
-    var(--border-color) 37%, 
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--border-color) 37%,
     var(--bg-secondary) 63%
   );
   background-size: 400% 100%;
@@ -219,7 +241,9 @@ p {
   line-height: 1.7;
 }
 
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
@@ -230,7 +254,8 @@ p {
   font-weight: 400;
 }
 
-.markdown-body ul, .markdown-body ol {
+.markdown-body ul,
+.markdown-body ol {
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
 }

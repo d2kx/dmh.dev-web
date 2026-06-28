@@ -20,9 +20,9 @@ export class BlogService {
     if (this.postsCache) {
       return of(this.postsCache);
     }
-    return this.http.get<BlogPostMetadata[]>('/blog/posts.json').pipe(
-      tap(posts => this.postsCache = posts)
-    );
+    return this.http
+      .get<BlogPostMetadata[]>('/blog/posts.json')
+      .pipe(tap((posts) => (this.postsCache = posts)));
   }
 
   getPostContent(slug: string): Observable<string> {
@@ -30,8 +30,8 @@ export class BlogService {
     if (cached) {
       return of(cached);
     }
-    return this.http.get(`/blog/posts/${slug}.md`, { responseType: 'text' }).pipe(
-      tap(content => this.contentCache.set(slug, content))
-    );
+    return this.http
+      .get(`/blog/posts/${slug}.md`, { responseType: 'text' })
+      .pipe(tap((content) => this.contentCache.set(slug, content)));
   }
 }

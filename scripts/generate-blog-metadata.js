@@ -27,12 +27,12 @@ function parseFrontmatter(fileContent) {
   const content = match[2];
   const metadata = {};
 
-  yamlLines.forEach(line => {
+  yamlLines.forEach((line) => {
     const colonIndex = line.indexOf(':');
     if (colonIndex !== -1) {
       const key = line.slice(0, colonIndex).trim();
       const value = line.slice(colonIndex + 1).trim();
-      
+
       // Strip outer quotes if present
       metadata[key] = value.replace(/^["']|["']$/g, '');
     }
@@ -43,7 +43,7 @@ function parseFrontmatter(fileContent) {
 
 function main() {
   console.log('Generating blog post metadata...');
-  
+
   if (!fs.existsSync(srcDir)) {
     console.error(`Source directory not found: ${srcDir}`);
     process.exit(1);
@@ -53,7 +53,7 @@ function main() {
   const postsMetadata = [];
   const routes = ['/', '/about', '/blog', '/legal-notice', '/privacy-policy'];
 
-  files.forEach(file => {
+  files.forEach((file) => {
     if (path.extname(file) !== '.md') return;
 
     const filePath = path.join(srcDir, file);
@@ -69,7 +69,7 @@ function main() {
       title: metadata.title,
       slug: metadata.slug,
       publishedAt: metadata.publishedAt,
-      excerpt: metadata.excerpt
+      excerpt: metadata.excerpt,
     });
 
     // Write clean post body to public/blog/posts/<slug>.md

@@ -44,7 +44,9 @@
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--text-secondary);
-  transition: color 0.25s ease, transform 0.2s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.2s ease;
 }
 
 .social-item:hover {
@@ -77,7 +79,6 @@
 .actions {
   margin-top: 0.5rem;
 }
-
 
 /* Blog Section */
 .blog-section {

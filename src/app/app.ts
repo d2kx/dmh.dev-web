@@ -6,14 +6,14 @@ import { ThemeService } from './services/theme.service';
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly themeService = inject(ThemeService);
   protected readonly isMobileMenuOpen = signal(false);
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen.update(v => !v);
+    this.isMobileMenuOpen.update((v) => !v);
   }
 
   closeMobileMenu(): void {

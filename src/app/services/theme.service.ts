@@ -32,6 +32,6 @@ export class ThemeService {
   }
 
   toggleTheme(): void {
-    this.theme.update(t => t === 'light' ? 'dark' : 'light');
+    this.theme.update((t) => (t === 'light' ? 'dark' : 'light'));
   }
 }

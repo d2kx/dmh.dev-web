@@ -11,6 +11,7 @@ import { localeDe } from './i18n/de';
 
 // Static translation loader for immediate rendering under SSR
 export class StaticTranslateLoader implements TranslateLoader {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getTranslation(lang: string): Observable<any> {
     if (lang === 'de') {
       return of(localeDe);
@@ -29,8 +30,8 @@ export const appConfig: ApplicationConfig = {
       fallbackLang: 'en',
       loader: {
         provide: TranslateLoader,
-        useClass: StaticTranslateLoader
-      }
-    })
-  ]
+        useClass: StaticTranslateLoader,
+      },
+    }),
+  ],
 };

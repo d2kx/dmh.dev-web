@@ -7,21 +7,19 @@ import { SeoService } from '../../services/seo.service';
   selector: 'app-privacy-policy',
   imports: [RouterLink, TranslatePipe],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.css'
+  styleUrl: './privacy-policy.component.css',
 })
 export class PrivacyPolicyComponent {
   protected readonly translate = inject(TranslateService);
   private readonly seoService = inject(SeoService);
 
-  protected readonly currentLang = computed(() => 
-    this.translate.currentLang() || 'en'
-  );
+  protected readonly currentLang = computed(() => this.translate.currentLang() || 'en');
 
   constructor() {
     this.seoService.updateMeta(
       'Privacy Policy | Datenschutzerklärung | Dennis Martin Herbers',
       'Privacy Policy and data protection disclosures for dmh.dev. Learn how we handle your data.',
-      '/privacy-policy'
+      '/privacy-policy',
     );
   }
 

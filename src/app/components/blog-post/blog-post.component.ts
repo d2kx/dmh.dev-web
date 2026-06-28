@@ -9,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
   selector: 'app-blog-post',
   imports: [RouterLink, DatePipe],
   templateUrl: './blog-post.component.html',
-  styleUrl: './blog-post.component.css'
+  styleUrl: './blog-post.component.css',
 })
 export class BlogPostComponent {
   private readonly route = inject(ActivatedRoute);
@@ -21,7 +21,7 @@ export class BlogPostComponent {
   protected readonly isLoading = signal<boolean>(true);
 
   constructor() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
       if (slug) {
         this.loadPost(slug);
@@ -35,20 +35,16 @@ export class BlogPostComponent {
     this.currentPost.set(null);
 
     // Retrieve post metadata from registry first
-    this.blogService.getPosts().subscribe(posts => {
-      const post = posts.find(p => p.slug === slug);
+    this.blogService.getPosts().subscribe((posts) => {
+      const post = posts.find((p) => p.slug === slug);
       if (post) {
         this.currentPost.set(post);
-        this.seoService.updateMeta(
-          post.title,
-          post.excerpt,
-          `/blog/${slug}`
-        );
+        this.seoService.updateMeta(post.title, post.excerpt, `/blog/${slug}`);
       } else {
         this.seoService.updateMeta(
           'Blog Post',
           'Read my latest thoughts on software engineering.',
-          `/blog/${slug}`
+          `/blog/${slug}`,
         );
       }
 
@@ -64,7 +60,7 @@ export class BlogPostComponent {
           console.error(err);
           this.postContent.set('<p>Error loading blog post. Please try again later.</p>');
           this.isLoading.set(false);
-        }
+        },
       });
     });
   }
