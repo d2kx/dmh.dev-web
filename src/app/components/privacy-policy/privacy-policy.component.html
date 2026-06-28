@@ -1,0 +1,55 @@
+<div class="privacy-container">
+  <header class="privacy-header">
+    <h1 class="title">{{ 'PRIVACY_POLICY.TITLE' | translate }}</h1>
+    
+    <!-- Language Toggle Pill Group -->
+    <div class="lang-switch-group">
+      <button 
+        (click)="setLanguage('en')" 
+        class="lang-btn rainbow-link-hover" 
+        [class.active]="currentLang() === 'en'"
+        aria-label="Switch to English"
+      >
+        {{ 'LANG_SWITCH.EN' | translate }}
+      </button>
+      <span class="divider">/</span>
+      <button 
+        (click)="setLanguage('de')" 
+        class="lang-btn rainbow-link-hover" 
+        [class.active]="currentLang() === 'de'"
+        aria-label="Wechsle zu Deutsch"
+      >
+        {{ 'LANG_SWITCH.DE' | translate }}
+      </button>
+    </div>
+  </header>
+
+  <section class="privacy-content">
+    <p class="intro">{{ 'PRIVACY_POLICY.INTRO' | translate }}</p>
+
+    <div class="privacy-block">
+      <h3>{{ 'PRIVACY_POLICY.HOSTING' | translate }}</h3>
+      <p>{{ 'PRIVACY_POLICY.HOSTING_TEXT' | translate }}</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>{{ 'PRIVACY_POLICY.COOKIES' | translate }}</h3>
+      <p>{{ 'PRIVACY_POLICY.COOKIES_TEXT' | translate }}</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>{{ 'PRIVACY_POLICY.YOUR_RIGHTS' | translate }}</h3>
+      <p>{{ 'PRIVACY_POLICY.YOUR_RIGHTS_TEXT' | translate }}</p>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button routerLink="/" class="rainbow-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>{{ 'COMMON.BACK_HOME' | translate }}</span>
+    </button>
+  </footer>
+</div>

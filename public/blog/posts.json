@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Designing with Rich Aesthetics",
+    "slug": "web-design-aesthetics",
+    "publishedAt": "2026-06-28T22:30:00Z",
+    "excerpt": "How to design premium developer portfolios using curated color systems, modern typography, and subtle rainbow accents."
+  },
+  {
+    "title": "Exploring Angular v22 Features",
+    "slug": "exploring-angular-v22",
+    "publishedAt": "2026-06-28T22:15:00Z",
+    "excerpt": "A deep dive into the latest stable features of Angular v22, including signals-based reactivity, signal forms, and zoneless rendering."
+  },
+  {
+    "title": "Welcome to My New Blog",
+    "slug": "welcome-to-my-new-blog",
+    "publishedAt": "2026-06-28T22:00:00Z",
+    "excerpt": "An introduction to my new personal portfolio, developer blog, and why I decided to rewrite the application using Angular v22."
+  }
+]

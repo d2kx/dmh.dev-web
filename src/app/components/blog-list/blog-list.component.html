@@ -1,0 +1,44 @@
+<div class="blog-list-container">
+  <header class="blog-list-header">
+    <h1 class="title">Blog</h1>
+    <p class="subtitle">Thoughts on web development and software engineering</p>
+  </header>
+
+  <section class="blog-section">
+    <div class="posts-list">
+      @if (posts() === undefined) {
+        <!-- Skeleton Loading Cards -->
+        @for (i of [1, 2, 3]; track i) {
+          <article class="post-card skeleton-card">
+            <div class="skeleton-date skeleton"></div>
+            <div class="skeleton-title skeleton"></div>
+            <div class="skeleton-excerpt skeleton"></div>
+          </article>
+        }
+      } @else if (posts()?.length === 0) {
+        <p class="no-posts">No blog posts available yet.</p>
+      } @else {
+        <!-- Render Real Blog Posts -->
+        @for (post of posts(); track post.slug) {
+          <a [routerLink]="['/blog', post.slug]" class="post-card-link">
+            <article class="post-card rainbow-card">
+              <span class="post-date">{{ post.publishedAt | date:'MMMM d, yyyy' }}</span>
+              <h3 class="post-title">{{ post.title }}</h3>
+              <p class="post-excerpt">{{ post.excerpt }}</p>
+            </article>
+          </a>
+        }
+      }
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button routerLink="/" class="rainbow-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back to Home</span>
+    </button>
+  </footer>
+</div>

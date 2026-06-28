@@ -1,0 +1,8 @@
+/
+/about
+/blog
+/legal-notice
+/privacy-policy
+/blog/welcome-to-my-new-blog
+/blog/exploring-angular-v22
+/blog/web-design-aesthetics

@@ -1,1 +1,277 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import local Outfit font files via Fontsource */
+@import "@fontsource/outfit/300.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+
+/* Reset & Box-Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Color Variables & Themes */
+:root {
+  /* Light Mode (Default) */
+  --bg-primary: oklch(99.2% 0.002 240);
+  --bg-secondary: oklch(96.5% 0.004 240);
+  --text-primary: oklch(22% 0.008 240);
+  --text-secondary: oklch(45% 0.012 240);
+  --border-color: oklch(90% 0.006 240);
+  --card-bg: oklch(100% 0 0);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  /* Brand and Accent Colors */
+  --accent: oklch(58% 0.22 265);
+  --accent-rgb: 99, 102, 241;
+  --github-color: #181717;
+  --linkedin-color: #0077b5;
+  --twitter-color: #1da1f2;
+  --email-color: #ea4335;
+
+  /* Gemini-style Rainbow Gradient */
+  --rainbow-gradient: linear-gradient(135deg, 
+    oklch(65% 0.22 260) 0%, 
+    oklch(60% 0.24 300) 25%, 
+    oklch(65% 0.22 340) 50%, 
+    oklch(70% 0.18 20) 75%, 
+    oklch(75% 0.15 80) 100%
+  );
+
+  /* Fonts */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Apply Dark Mode Class overrides */
+html.dark {
+  --bg-primary: oklch(15.5% 0.01 240);
+  --bg-secondary: oklch(20% 0.015 240);
+  --text-primary: oklch(94% 0.004 240);
+  --text-secondary: oklch(70% 0.01 240);
+  --border-color: oklch(28% 0.012 240);
+  --card-bg: oklch(18.5% 0.012 240);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  --accent: oklch(75% 0.16 265);
+  --github-color: #f0f0f0;
+  --twitter-color: #e1e8ed;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Hyperlinks */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Typography elements */
+p {
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Rainbow Card Base & Hover styles */
+.rainbow-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--border-color);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+  position: relative;
+}
+
+.rainbow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  /* The padding-box/border-box gradient border trick */
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              var(--rainbow-gradient) border-box;
+  border-color: transparent;
+}
+
+/* Rainbow Button styles */
+.rainbow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border-radius: 9999px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.rainbow-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              var(--rainbow-gradient) border-box;
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.rainbow-btn:active {
+  transform: translateY(0);
+}
+
+/* Rainbow Text Hover effect for links */
+.rainbow-link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.rainbow-link-hover:hover {
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Skeleton Loading styles */
+.skeleton {
+  animation: skeleton-shimmer 1.5s infinite linear;
+  background: linear-gradient(90deg, 
+    var(--bg-secondary) 25%, 
+    var(--border-color) 37%, 
+    var(--bg-secondary) 63%
+  );
+  background-size: 400% 100%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Markdown Rendering Content Area styling */
+.markdown-body {
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body code {
+  font-family: var(--font-mono);
+  background-color: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.markdown-body pre {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body pre code {
+  padding: 0;
+  background-color: transparent;
+  font-size: 0.85rem;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.markdown-body hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+}

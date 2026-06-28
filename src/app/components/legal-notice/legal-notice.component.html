@@ -1,0 +1,59 @@
+<div class="legal-container">
+  <header class="legal-header">
+    <h1 class="title">{{ 'LEGAL_NOTICE.TITLE' | translate }}</h1>
+    
+    <!-- Language Toggle Pill Group -->
+    <div class="lang-switch-group">
+      <button 
+        (click)="setLanguage('en')" 
+        class="lang-btn rainbow-link-hover" 
+        [class.active]="currentLang() === 'en'"
+        aria-label="Switch to English"
+      >
+        {{ 'LANG_SWITCH.EN' | translate }}
+      </button>
+      <span class="divider">/</span>
+      <button 
+        (click)="setLanguage('de')" 
+        class="lang-btn rainbow-link-hover" 
+        [class.active]="currentLang() === 'de'"
+        aria-label="Wechsle zu Deutsch"
+      >
+        {{ 'LANG_SWITCH.DE' | translate }}
+      </button>
+    </div>
+  </header>
+
+  <section class="legal-content">
+    <div class="legal-block">
+      <h3>{{ 'LEGAL_NOTICE.INFO' | translate }}</h3>
+      <p>
+        Dennis Martin Herbers<br>
+        48149 Münster<br>
+        Germany
+      </p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{{ 'LEGAL_NOTICE.CONTACT' | translate }}</h3>
+      <p>
+        <strong>{{ 'LEGAL_NOTICE.EMAIL' | translate }}:</strong> <a href="mailto:dennis@dmh.dev" class="rainbow-link-hover">dennis&#64;dmh.dev</a>
+      </p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{{ 'LEGAL_NOTICE.DISCLAIMER' | translate }}</h3>
+      <p>{{ 'LEGAL_NOTICE.DISCLAIMER_TEXT' | translate }}</p>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button routerLink="/" class="rainbow-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>{{ 'COMMON.BACK_HOME' | translate }}</span>
+    </button>
+  </footer>
+</div>

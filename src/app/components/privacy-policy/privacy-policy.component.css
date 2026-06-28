@@ -1,0 +1,97 @@
+.privacy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.privacy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Language Switcher Pill Group */
+.lang-switch-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  padding: 0;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: color 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.lang-btn.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.divider {
+  color: var(--border-color);
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+/* Content layout */
+.privacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.privacy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.privacy-block h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.privacy-block p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.actions {
+  margin-top: 1rem;
+}

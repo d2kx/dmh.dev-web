@@ -55,3 +55,11 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the `providedIn: 'root'` option for singleton services
 - Prefer the `@Service` decorator over `@Injectable({providedIn: 'root'})` for new singleton services (Angular v22+)
 - Use the `inject()` function instead of constructor injection
+
+## Project-Specific Architecture Decisions
+
+- **Fonts:** The typography is standardized on the **Outfit** font, imported locally via `@fontsource/outfit` in `src/styles.css` for self-hosting compliance.
+- **Blog Posts:** Raw blog posts live in the root `content/blog/` directory as `.md` files. A pre-build step (`scripts/generate-blog-metadata.js`) parses frontmatter to `public/blog/posts.json` and copies contents to `public/blog/posts/`. Do NOT modify files under `public/blog/` manually.
+- **Prerendering:** Dynamic blog routes are pre-rendered at build time via `getPrerenderParams` in `src/app/app.routes.server.ts` which dynamically reads `public/blog/posts.json`. Do NOT specify static route text files or global prerendering routes inside `angular.json`.
+- **Localization:** Use `ngx-translate` v18 standalone provider `provideTranslateService` with `fallbackLang: 'en'`. Import static translation bundles (`localeEn` and `localeDe`) from `src/app/i18n/` to prevent async HTTP fetching flicker under SSR.
+- **Theme Switcher:** Light mode is the default. Theme preference is managed in `ThemeService` using signals and persisted in `localStorage`. The HTML tag is immediately initialized with the `.dark` class in `index.html`'s `<head>` to prevent light-mode flickering under SSR.
