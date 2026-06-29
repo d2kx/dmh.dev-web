@@ -65,3 +65,38 @@
   height: 18px;
   border-radius: 4px;
 }
+
+/* Post Not Found Styling */
+.post-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+.not-found-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.not-found-message {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  margin-top: 0.5rem;
+}

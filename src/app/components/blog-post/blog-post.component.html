@@ -29,6 +29,31 @@
       <div class="skeleton-line skeleton"></div>
       <div class="skeleton-line skeleton" style="width: 80%"></div>
     </article>
+  } @else if (postNotFound()) {
+    <!-- Blog Post Not Found State -->
+    <article class="post-not-found">
+      <h1 class="not-found-title">Blog Post Not Found</h1>
+      <p class="not-found-message">The blog post you are looking for could not be found or was deleted.</p>
+      <div class="not-found-actions">
+        <button routerLink="/" class="rainbow-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Home</span>
+        </button>
+      </div>
+    </article>
   } @else {
     <!-- Real Blog Post content -->
     <article class="post-article">
