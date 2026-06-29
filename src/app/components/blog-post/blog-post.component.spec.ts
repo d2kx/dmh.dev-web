@@ -63,6 +63,7 @@ describe('BlogPostComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.post-article')).toBeTruthy();
     expect(compiled.querySelector('.post-not-found')).toBeFalsy();
+    expect(compiled.querySelector('.post-header-nav')).toBeTruthy();
   });
 
   it('should display not found message if slug does not exist in metadata list', async () => {
@@ -92,5 +93,6 @@ describe('BlogPostComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.post-article')).toBeFalsy();
     expect(compiled.querySelector('.post-not-found')).toBeTruthy();
+    expect(compiled.querySelector('.post-header-nav')).toBeFalsy();
   });
 });
