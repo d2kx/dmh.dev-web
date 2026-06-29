@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { DatePipe } from '@angular/common';
 import { BlogService } from '../../services/blog.service';
 import { SeoService } from '../../services/seo.service';
+import { BlogPostCardComponent } from '../blog-post-card/blog-post-card.component';
 
 @Component({
   selector: 'app-blog-list',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, BlogPostCardComponent],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css',
 })

@@ -1,19 +1,17 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { SeoService } from '../../services/seo.service';
+import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-legal-notice',
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, LanguageSwitcherComponent],
   templateUrl: './legal-notice.component.html',
   styleUrl: './legal-notice.component.css',
 })
 export class LegalNoticeComponent {
-  protected readonly translate = inject(TranslateService);
   private readonly seoService = inject(SeoService);
-
-  protected readonly currentLang = computed(() => this.translate.currentLang() || 'en');
 
   constructor() {
     this.seoService.updateMeta(
@@ -21,9 +19,5 @@ export class LegalNoticeComponent {
       'Legal Notice and Impressum information for dmh.dev. Contact details and legal disclosures.',
       '/legal-notice',
     );
-  }
-
-  setLanguage(lang: string): void {
-    this.translate.use(lang);
   }
 }

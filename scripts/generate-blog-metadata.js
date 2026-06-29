@@ -113,10 +113,10 @@ Sitemap: https://www.dmh.dev/sitemap.xml
     { loc: '/about', changefreq: 'monthly', priority: '0.8' },
     { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
     { loc: '/legal-notice', changefreq: 'yearly', priority: '0.3' },
-    { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.3' }
+    { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
   ];
 
-  staticRoutes.forEach(route => {
+  staticRoutes.forEach((route) => {
     sitemapContent += `  <url>
     <loc>https://www.dmh.dev${route.loc}</loc>
     <changefreq>${route.changefreq}</changefreq>
@@ -125,7 +125,7 @@ Sitemap: https://www.dmh.dev/sitemap.xml
 `;
   });
 
-  postsMetadata.forEach(post => {
+  postsMetadata.forEach((post) => {
     let lastmod = '';
     try {
       lastmod = new Date(post.publishedAt).toISOString().split('T')[0];
@@ -164,7 +164,7 @@ Sitemap: https://www.dmh.dev/sitemap.xml
 
 `;
 
-  postsMetadata.forEach(post => {
+  postsMetadata.forEach((post) => {
     llmsContent += `- [${post.title}](https://www.dmh.dev/blog/${post.slug}) (${post.publishedAt})
   ${post.excerpt}
 `;

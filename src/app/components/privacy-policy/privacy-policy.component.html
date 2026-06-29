@@ -3,25 +3,7 @@
     <h1 class="title">{{ 'PRIVACY_POLICY.TITLE' | translate }}</h1>
 
     <!-- Language Toggle Pill Group -->
-    <div class="lang-switch-group">
-      <button
-        (click)="setLanguage('en')"
-        class="lang-btn rainbow-link-hover"
-        [class.active]="currentLang() === 'en'"
-        aria-label="Switch to English"
-      >
-        {{ 'LANG_SWITCH.EN' | translate }}
-      </button>
-      <span class="divider">/</span>
-      <button
-        (click)="setLanguage('de')"
-        class="lang-btn rainbow-link-hover"
-        [class.active]="currentLang() === 'de'"
-        aria-label="Wechsle zu Deutsch"
-      >
-        {{ 'LANG_SWITCH.DE' | translate }}
-      </button>
-    </div>
+    <app-language-switcher />
   </header>
 
   <section class="privacy-content">

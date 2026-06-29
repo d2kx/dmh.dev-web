@@ -101,24 +101,14 @@
       @if (latestPosts() === undefined) {
         <!-- Skeleton Loading Cards -->
         @for (i of [1, 2, 3]; track i) {
-          <article class="post-card skeleton-card">
-            <div class="skeleton-date skeleton"></div>
-            <div class="skeleton-title skeleton"></div>
-            <div class="skeleton-excerpt skeleton"></div>
-          </article>
+          <app-blog-post-card />
         }
       } @else if (latestPosts()?.length === 0) {
         <p class="no-posts">No blog posts available yet.</p>
       } @else {
         <!-- Render Real Blog Posts -->
         @for (post of latestPosts(); track post.slug) {
-          <a [routerLink]="['/blog', post.slug]" class="post-card-link">
-            <article class="post-card rainbow-card">
-              <span class="post-date">{{ post.publishedAt | date: 'MMMM d, yyyy' }}</span>
-              <h3 class="post-title">{{ post.title }}</h3>
-              <p class="post-excerpt">{{ post.excerpt }}</p>
-            </article>
-          </a>
+          <app-blog-post-card [post]="post" />
         }
 
         <!-- All blog posts Button -->

@@ -28,15 +28,29 @@ npm install
 
 ### Development Server
 
-Start the local development server:
+To run the local development server:
+
+1. Compile the blog metadata registry:
+   ```bash
+   node scripts/generate-blog-metadata.js
+   ```
+2. Start the Angular dev server:
+   ```bash
+   npx ng serve
+   ```
+   _(Or run `npm run ng -- serve`)_
+
+Navigate to `http://localhost:4200/`. The app will reload automatically when source files change.
+
+### Production Server (Railway Deployment)
+
+The `npm run start` command is configured specifically to boot the compiled production SSR server during Railway deployment:
 
 ```bash
 npm run start
 ```
 
-_This will automatically run the blog metadata compilation script (`scripts/generate-blog-metadata.js`) before launching `ng serve`._
-
-Navigate to `http://localhost:4200/`. The app will reload automatically when source files change.
+_Note: This automatically triggers `prestart` to generate the blog metadata registry first, then runs the production bundle at `dist/dmh.dev-web/server/server.mjs`._
 
 ### Production Build
 
@@ -46,7 +60,7 @@ Build the application and prerender static HTML routes:
 npm run build
 ```
 
-_Compiled HTML output is stored under `dist/dmh.dev-web/browser/`._
+_Compiled output is stored under `dist/dmh.dev-web/`._
 
 ### Running Unit Tests
 
